@@ -36,7 +36,12 @@ int main()
 
         while (userValue != 21 && option != 2)
         {
-            cout << "YOUR TURN!" << endl;
+			if (userValue == 21 || cpuValue == 21)
+			{
+				cout << "BLACKJACK!!!!!" << endl;
+				break;
+			}
+			cout << "YOUR TURN!" << endl;
             cout << "Hit......press 1" << endl;
             cout << "Stand....press 2" << endl;
             cin >> option;
@@ -60,6 +65,10 @@ int main()
         cout << "CPU TURN!" << endl;
         while(cpuValue < 17 && userValue <= 21)
         {
+			if (cpuValue == 21)
+			{
+				break;
+			}
             AddCard(cpuHand,cpuValue,cpuHandCount,cards,cardValues,cardCount);
             if( cpuValue > 21)
             {
